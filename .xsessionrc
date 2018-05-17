@@ -1,0 +1,4 @@
+#!/bin/bash
+pulseaudio --start --log-target=syslog &
+compton -CG --active-opacity 1.0 --shadow-ignore-shaped &
+stalonetray &
