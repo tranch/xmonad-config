@@ -1,7 +1,7 @@
 Config { 
 
    -- appearance
-     font =         "xft:Meslo LG S:size=8:antialias=true:hinting=true"
+     font =         "xft:ProFontIIx Nerd Font:size=8:antialias=false:hinting=true"
    , bgColor =      "black"
    , fgColor =      "#646464"
    , position =     TopW L 100
@@ -11,7 +11,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%battery%%multicpu% %coretemp% %memory% }{ %date% "
+   , template = "%battery% %multicpu% %coretemp% %memory% }{ %date% "
 
    --, overrideRedirect = False
    --, lowerOnStart = False
@@ -33,7 +33,7 @@ Config {
    --   color can be set by enclosing in <fc></fc> tags. For more details
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
    , commands = 
--- cpu activity monitor
+        -- cpu activity monitor
         [ Run MultiCpu       [ "--template" , "<fc=#aaaaaa><icon=.icons/cpu.xbm/></fc><total0>%|<total1>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
@@ -76,15 +76,12 @@ Config {
                                        -- charged status
                                        , "-i"	, "<fc=#006000><icon=.icons/ac_01.xbm/></fc>"
                              ] 50
-        --, Run Volume         [ "--template" , "<icon=.icons/spkr_01.xbm/><volume>% <status>"
-        --                     , "--"
-        --                               , "-O", "<icon=.icons/spkr_02.xbm/>"
-        --                               , "-o", "<icon=.icons/spkr_01.xbm/>"
-        --                     ] 10
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
         , Run Date           "<fc=#ABABAB><icon=.icons/clock.xbm/>%F (%a) %T</fc>" "date" 10
+
+        , Run Volume         "default" "Master" [] 10
         -- , Run StdinReader
         ]
    }

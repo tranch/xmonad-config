@@ -39,10 +39,10 @@ main = do
         , startupHook           = myStartupHook
         , handleEventHook       = handleEventHook defaultConfig <+> docksEventHook
         } `additionalKeys`
-        [ ((0, xK_Print), spawn "scrot -q 1 $HOME/Pictures/screenshots/%Y%m%d_%H%M%S.png")
-        , ((0, 0x1008ff11), spawn "amixer set Master 5%- unmute")
+        [ ((0, 0x1008ff11), spawn "amixer set Master 5%- unmute")
         , ((0, 0x1008ff12), spawn "amixer set Master toggle")
         , ((0, 0x1008ff13), spawn "amixer set Master 5%+ unmute")
+        , ((0, xK_Print), spawn "scrot -q 1 $HOME/Pictures/screenshots/%Y%m%d_%H%M%S.png")
         , ((controlMask, xK_Print), spawn "scrot -u $HOME/Pictures/screenshots/%Y%m%d_%H%M%S.png")
         , ((mod4Mask, xK_space), spawn "rofi -matching fuzzy -modi combi -show combi -combi-modi run,drun")
         ]
